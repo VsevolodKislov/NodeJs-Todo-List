@@ -13,7 +13,7 @@ class TodoRepository {
    */
   create(name) {
     const newTodo = { name, done: false };
-    // eslint-disable-next-line new-cap
+   
     const todo = new this.model(newTodo);
 
     return todo.save();
