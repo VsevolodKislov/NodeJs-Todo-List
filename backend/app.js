@@ -17,7 +17,7 @@ mongoose.connect(config.DB, {
   useUnifiedTopology: true,
 });
 
-app.use(cors());  //enable cors
+app.use(cors());  
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -35,12 +35,10 @@ app.use((err, req, res) => {
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-  // render the error page
   res.status(err.status || 500);
   res.render('error');
 });
 
-app.listen(config.APP_PORT); // Listen on port defined in environment
-
+app.listen(config.APP_PORT);
 
 module.exports = app;
